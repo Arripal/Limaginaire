@@ -1,0 +1,99 @@
+/*** START RESET ***/
+
+*,
+html {
+	font-family: 'Poppins', sans-serif;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+html:focus-within {
+	scroll-behavior: smooth;
+}
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+li {
+	list-style-type: none;
+}
+img,
+picture,
+svg,
+video,
+canvas {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+/**** END RESET *******/
+
+/*** Colors ***/
+
+$base-color: #fff;
+$secondary-color: #3c7057;
+$third-color: #c6a27e;
+$fourth-color: black;
+/** Font sizes **/
+
+$size-xs-desktop: 1.125rem; /** 18px **/
+$size-small-desktop: 1.25rem; /** 20px **/
+$size-regular-desktop: 1.5rem; /** 24px **/
+$size-medium-desktop: 2.25rem; /** 36px **/
+$size-xl-desktop: 3rem; /** 48px **/
+$size-xxl-desktop: 4rem; /** 64px **/
+
+/** Font weights **/
+
+$weight-extralight: 200;
+$weight-light: 300;
+$weight-regular: 400;
+$weight-semibold: 500;
+$weigth-bold: 600;
+
+body {
+	color: $base-color;
+}
+
+@mixin flex {
+	display: flex;
+}
+@mixin flex-col {
+	@include flex;
+	flex-direction: column;
+}
+@mixin flex-items-center {
+	@include flex;
+	align-items: center;
+}
+
+@mixin flex-justify-between {
+	@include flex;
+	justify-content: space-between;
+}
+@mixin flex-col-items-center {
+	@include flex-col();
+	align-items: center;
+}
+
+@mixin flex-col-justify-between {
+	@include flex-col;
+	justify-content: space-between;
+}
+@mixin flex-items-center-justify-between {
+	@include flex-items-center();
+	@include flex-justify-between();
+}
+
+@mixin padding-bloc-element {
+	padding-left: 1.8rem;
+	padding-right: 1.8rem;
+}

@@ -1,4 +1,3 @@
-import BookModel from '../../models/BookModel';
 import Book from '../Book/Book';
 
 const List = ({ books }) => {
