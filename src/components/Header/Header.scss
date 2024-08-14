@@ -1,0 +1,43 @@
+@import '../../index.scss';
+
+.header {
+	background-color: #3c7057;
+	border-bottom: 2px solid $third-color;
+	@include flex-items-center-justify-between;
+	@include padding-bloc-element;
+	padding-top: 1.5rem;
+	padding-bottom: 1.5rem;
+	&__title {
+		font-size: $size-xxl-desktop;
+		font-weight: 300;
+		background: linear-gradient(
+			to right,
+			$base-color,
+			rgba(228, 228, 232, 0.759)
+		);
+		background-clip: text;
+		color: transparent;
+	}
+	&__nav {
+		@include flex-items-center-justify-between;
+		min-width: 35%;
+		&-link {
+			color: inherit;
+			text-decoration: none;
+			font-size: $size-regular-desktop;
+		}
+
+		&-link:hover {
+			font-weight: $weight-semibold;
+			color: inherit;
+		}
+
+		&-link:not(:first-child) span {
+			margin-left: 10px;
+		}
+	}
+}
+
+.active {
+	color: $third-color;
+}

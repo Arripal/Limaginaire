@@ -1,0 +1,16 @@
+@import '../../index.scss';
+
+@mixin basics-styles {
+	min-height: 40vh;
+	background-color: $secondary-color;
+}
+
+.main {
+	@include basics-styles;
+	&__title {
+		text-align: center;
+		font-size: $size-xl-desktop;
+		font-weight: $weight-semibold;
+		padding-top: 4rem;
+	}
+}
