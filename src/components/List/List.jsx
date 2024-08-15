@@ -5,9 +5,12 @@ const List = ({ books }) => {
 		return <Book key={`book--${index}-${Date.now()}`} book={book} />;
 	});
 
+	const sectionTitle =
+		books.length > 0 ? 'Résultats' : 'Aucun résultat à votre recherche';
+
 	return (
 		<section>
-			<h1>Afficher les livres correspondant ici</h1>
+			<h1>{sectionTitle}</h1>
 			{booksList}
 		</section>
 	);
