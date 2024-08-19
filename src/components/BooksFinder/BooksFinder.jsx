@@ -1,34 +1,34 @@
 import { useEffect, useState, useRef } from 'react';
+import booksFormatter from '../../utils/booksFormatter';
 import './BooksFinder.scss';
 
-const BooksFinder = ({ setBooks }) => {
+const BooksFinder = ({ setBooks, setResultSectionTitle, setIsLoading }) => {
 	const [inputValue, setInputValue] = useState('');
 	const inputValueReference = useRef();
+
 	useEffect(() => {
 		async function fetchBooks() {
 			if (!inputValue || inputValue.trim() == '') return;
 
-			const url = `https://openlibrary.org/search.json?q=${inputValue}&fields=key,cover_i,title,author_name,first_publish_year`;
-
+			const bookUrl = `https://openlibrary.org/search.json?q=${inputValue}&fields=key,cover_i,title,author_name,first_publish_year`;
+			setIsLoading(true);
 			try {
-				const response = await fetch(url);
-				const booksData = await response.json();
+				const booksResponse = await fetch(bookUrl);
+				const booksData = await booksResponse.json();
 				const { docs } = booksData;
 				if (!docs) {
 					setBooks([]);
+					setResultSectionTitle(
+						'Aucun résultat ne correspond à votre recherche.'
+					);
 				}
-				console.log(docs);
-				const formattedBooks = docs.map((book) => {
-					return {
-						id: book.key,
-						author: book.author_name,
-						title: book.title,
-						cover: book.cover_i,
-						publishYear: book.first_publish_year,
-					};
-				});
-				setBooks(formattedBooks);
+
+				const books = booksFormatter(docs);
+				setBooks(books);
+				setResultSectionTitle('Résultats de votre recherche');
+				setIsLoading(false);
 			} catch (error) {
+				setIsLoading(false);
 				throw new Error();
 			}
 		}
@@ -54,14 +54,14 @@ const BooksFinder = ({ setBooks }) => {
 		<main className="main">
 			<h2 className="main__title">Rechercher un livre</h2>
 
-			<form onSubmit={onSubmitHandler}>
+			<form className="main__form" onSubmit={onSubmitHandler}>
 				<input
-					className="main__input"
+					className="main__form-input"
 					type="text"
 					placeholder="Renseigner le titre ou l'auteur ici"
 					ref={inputValueReference}
 				/>
-				<button className="main_btn" type="submit">
+				<button className="main__form-btn" type="submit">
 					<i className="fa-solid fa-magnifying-glass"></i>
 				</button>
 			</form>

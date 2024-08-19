@@ -1,13 +1,14 @@
-const Book = ({ book }) => {
-	const { author, title, image, publishYear } = book;
+import './Book.scss';
 
+const Book = ({ book }) => {
+	const { author, title, cover, publishYear } = book;
 	return (
-		<div>
-			<img src={image} alt="Image" />
-			<span>Author : {author}</span>
-			<span>Title : {title}</span>
-			<span>Published in : {publishYear}</span>
-		</div>
+		<article className="book">
+			{cover && <img className="book__image" src={cover} alt="Image" />}
+			<p className="book__author">Auteur : {author}</p>
+			<p className="book__title">Titre : {title}</p>
+			<p className="book__published">Année de publication : {publishYear}</p>
+		</article>
 	);
 };
 
