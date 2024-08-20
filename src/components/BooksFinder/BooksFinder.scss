@@ -7,7 +7,6 @@
 
 .main {
 	@include basics-styles;
-	@include padding-bloc-element;
 	@include flex-col-items-center;
 	&__title {
 		font-size: $size-regular-desktop;
@@ -27,18 +26,23 @@
 			width: 100%;
 			max-width: 600px;
 			min-height: 50px;
-			padding-left: 0.3rem;
 			border: none;
-
 			border-top-left-radius: 8px;
 			border-bottom-left-radius: 8px;
 			transition: 0.2s ease-in-out;
+			padding-left: 1rem;
+			font-size: $size-small-desktop;
 		}
 		&-input:focus {
 			outline: none;
 		}
 		&-input:hover {
 			background-color: rgba(255, 255, 255, 0.98);
+		}
+		&-input::placeholder {
+			font-size: $size-small-desktop;
+			padding-left: 1rem;
+			color: $fourth-color;
 		}
 		&-btn {
 			min-height: 50px;

@@ -10,7 +10,7 @@ const BooksFinder = ({ setBooks, setResultSectionTitle, setIsLoading }) => {
 		async function fetchBooks() {
 			if (!inputValue || inputValue.trim() == '') return;
 
-			const bookUrl = `https://openlibrary.org/search.json?q=${inputValue}&fields=key,cover_i,title,author_name,first_publish_year`;
+			const bookUrl = `https://openlibrary.org/search.json?q=${inputValue}&fields=key,cover_i,title,author_name&limit=30`;
 			setIsLoading(true);
 			try {
 				const booksResponse = await fetch(bookUrl);
@@ -44,9 +44,10 @@ const BooksFinder = ({ setBooks, setResultSectionTitle, setIsLoading }) => {
 		const currentInputValue = inputValueReference.current.value.trim();
 
 		if (currentInputValue !== inputValue) {
+			setBooks([]);
 			setInputValue(currentInputValue);
 		} else {
-			console.log('Input value is still the same');
+			alert('Les résultats pour cette recherche sont déjà affichés.');
 		}
 	};
 

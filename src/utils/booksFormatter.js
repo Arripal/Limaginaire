@@ -1,15 +1,12 @@
 export default function booksFormatter(books) {
 	const formattedBooks = books
 		.filter((book) => book.cover_i)
-		.map((book) => {
-			const formattedKey = book.key.split('works/')[1];
-
+		.map((book, index) => {
 			return {
-				id: formattedKey,
-				author: book.author_name,
+				id: `book--${book.title.trim()}--${index}}`,
+				author: book.author_name.join(' - '),
 				title: book.title,
 				cover: `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`,
-				publishYear: book.first_publish_year,
 			};
 		});
 

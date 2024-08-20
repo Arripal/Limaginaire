@@ -2,4 +2,22 @@
 
 .book {
 	color: $fourth-color;
+	max-width: 160px;
+	img {
+		height: 255px;
+	}
+
+	&__details {
+		padding-top: 0.3rem;
+
+		&-author {
+			color: $secondary-color;
+			font-weight: $weight-semibold;
+			text-transform: uppercase;
+		}
+
+		&-title {
+			font-weight: $weight-light;
+		}
+	}
 }
