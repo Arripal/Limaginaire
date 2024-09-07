@@ -8,7 +8,6 @@ const BooksHandler = () => {
 	const [books, setBooks] = useState([]);
 	const [resultSectionTitle, setResultSectionTitle] = useState('');
 	const [isLoading, setIsLoading] = useState(false);
-
 	return (
 		<div>
 			<BooksFinder

@@ -39,15 +39,17 @@ select {
 /*** Colors ***/
 
 $base-color: #fff;
-$secondary-color: #3c7057;
-$third-color: #c6a27e;
-$fourth-color: black;
+$secondary-color: #4d69b5;
+$third-color: black;
+
 /** Font sizes **/
 
-$size-small-desktop: 1.25rem; /** 20px **/
-$size-regular-desktop: 1.5rem; /** 24px **/
-$size-medium-desktop: 2.25rem; /** 36px **/
-$size-xl-desktop: 3rem; /** 48px **/
+$size-xs: 1.1rem;
+$size-small: 1.25rem; /** 20px **/
+$size-regular: 1.5rem; /** 24px **/
+$size-medium: 2.25rem; /** 36px **/
+$size-xl: 3rem; /** 48px **/
+
 /** Font weights **/
 
 $weight-light: 300;
@@ -55,6 +57,7 @@ $weight-regular: 400;
 $weight-semibold: 500;
 
 $desktop-breakpoint: 750px;
+
 body {
 	color: $base-color;
 }

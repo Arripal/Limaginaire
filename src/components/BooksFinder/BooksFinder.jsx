@@ -53,7 +53,7 @@ const BooksFinder = ({ setBooks, setResultSectionTitle, setIsLoading }) => {
 
 	return (
 		<main className="main">
-			<h2 className="main__title">Rechercher un livre</h2>
+			<h2 className="main__title">L'imaginaire</h2>
 
 			<form className="main__form" onSubmit={onSubmitHandler}>
 				<input
