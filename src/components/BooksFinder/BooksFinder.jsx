@@ -53,18 +53,27 @@ const BooksFinder = ({ setBooks, setResultSectionTitle, setIsLoading }) => {
 
 	return (
 		<main className="main">
-			<h2 className="main__title">L'imaginaire</h2>
+			<section className="main__infos">
+				<p className="main__infos-text">
+					Les livres sont les portes de l'imaginaire,
+					<br />
+					ouvrant des mondes infinis à chaque page tournée.
+				</p>
+			</section>
 
 			<form className="main__form" onSubmit={onSubmitHandler}>
-				<input
-					className="main__form-input"
-					type="text"
-					placeholder="Renseigner le titre ou l'auteur ici"
-					ref={inputValueReference}
-				/>
-				<button className="main__form-btn" type="submit">
-					<i className="fa-solid fa-magnifying-glass"></i>
-				</button>
+				<h4>Rechercher un livre</h4>
+				<div>
+					<input
+						className="main__form-input"
+						type="text"
+						placeholder="Renseigner le titre ou l'auteur ici"
+						ref={inputValueReference}
+					/>
+					<button className="main__form-btn" type="submit">
+						<i className="fa-solid fa-magnifying-glass"></i>
+					</button>
+				</div>
 			</form>
 		</main>
 	);

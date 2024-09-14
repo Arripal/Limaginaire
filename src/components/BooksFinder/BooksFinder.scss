@@ -2,34 +2,68 @@
 
 @mixin basics-styles {
 	min-height: 40vh;
-	background-color: $secondary-color;
 }
 
 .main {
 	@include basics-styles;
-	@include flex-col-items-center;
-	&__title {
-		font-size: $size-medium;
-		font-weight: $weight-semibold;
-		padding-top: 3rem;
-		background: linear-gradient(
-			to right,
-			$base-color,
-			rgba(228, 228, 232, 0.759)
-		);
-		background-clip: text;
-		color: transparent;
+	width: 100%;
+	background-color: rgb(8, 8, 8);
+	@media (min-width: $desktop-breakpoint) {
+		@include flex-justify-between;
+	}
+
+	&__infos {
+		background: url('https://wallpapers.com/images/hd/black-and-white-book-1600-x-1000-wallpaper-hm8hjvm5k169uadk.jpg');
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		text-align: center;
+		height: 150px;
+		@include flex-items-center;
 		@media (min-width: $desktop-breakpoint) {
-			font-size: $size-xl;
+			clip-path: circle(67.5% at 32% 50%);
+			width: 45%;
+			height: auto;
+		}
+		&-text {
+			font-size: $size-xs;
+			font-weight: $weight-semibold;
+			font-style: italic;
+			@media (min-width: $desktop-breakpoint) {
+				font-size: $size-small;
+				font-weight: $weight-regular;
+
+				width: 70%;
+				padding-left: 4.2rem;
+			}
 		}
 	}
+
 	&__form {
-		@include flex;
-		justify-content: center;
 		width: 90%;
-		margin-top: 3rem;
+		margin: 0 auto;
+
 		@media (min-width: $desktop-breakpoint) {
-			width: 100%;
+			width: 55%;
+			padding-right: 2rem;
+		}
+		h4 {
+			text-align: center;
+			font-size: $size-regular;
+			font-weight: $weight-regular;
+			color: rgb(217, 161, 40);
+			margin: 1.5rem 0;
+			@media (min-width: $desktop-breakpoint) {
+				text-align: center;
+				font-size: $size-medium;
+				font-weight: $weight-regular;
+				color: rgb(217, 161, 40);
+				margin: 2.5rem 0;
+			}
+		}
+		div {
+			@include flex;
+			justify-content: center;
 		}
 		&-input {
 			width: 100%;
@@ -37,11 +71,15 @@
 			min-height: 50px;
 			border: none;
 			outline: none;
+			transition: 0.2s ease-in-out;
+			padding-left: 0.5rem;
+			font-size: $size-small;
+			border-right: none;
 			border-top-left-radius: 8px;
 			border-bottom-left-radius: 8px;
-			transition: 0.2s ease-in-out;
-			padding-left: 1rem;
-			font-size: $size-small;
+			@media (min-width: $desktop-breakpoint) {
+				padding-left: 1rem;
+			}
 		}
 		&-input:focus {
 			outline: none;
@@ -59,6 +97,7 @@
 			min-height: 50px;
 			background-color: $base-color;
 			border: none;
+			border-left: none;
 			border-top-right-radius: 8px;
 			border-bottom-right-radius: 8px;
 			padding: 0.2rem 0.7rem 0 0.7rem;

@@ -3,6 +3,7 @@ import BooksFinder from '../BooksFinder/BooksFinder';
 import Spinner from '../Spinner/Spinner';
 import List from '../List/List';
 import { useState } from 'react';
+import Header from '../Header/Header';
 
 const BooksHandler = () => {
 	const [books, setBooks] = useState([]);
@@ -10,6 +11,7 @@ const BooksHandler = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	return (
 		<div>
+			<Header />
 			<BooksFinder
 				setBooks={setBooks}
 				setResultSectionTitle={setResultSectionTitle}

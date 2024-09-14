@@ -55,7 +55,7 @@ $size-xl: 3rem; /** 48px **/
 $weight-light: 300;
 $weight-regular: 400;
 $weight-semibold: 500;
-
+$weight-bold: 700;
 $desktop-breakpoint: 750px;
 
 body {
@@ -72,6 +72,16 @@ body {
 }
 
 @mixin flex-col-items-center {
-	@include flex-col();
+	@include flex-col;
+	align-items: center;
+}
+
+@mixin flex-justify-between {
+	@include flex;
+	justify-content: space-between;
+}
+
+@mixin flex-items-center {
+	@include flex;
 	align-items: center;
 }
