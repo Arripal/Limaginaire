@@ -1,34 +1,19 @@
 import booksFormatter from './booksFormatter';
 
-export default async function fetchBooks(
-	inputValue,
-	setIsLoading,
-	setBooks,
-	setResultsMsg
-) {
-	const bookUrl = `https://openlibrary.org/search.json?q=${inputValue}&fields=key,cover_i,title,author_name&limit=30`;
-
-	setIsLoading(true);
-
+export default async function fetchBooks(API_URL) {
 	try {
-		const booksResponse = await fetch(bookUrl);
+		const booksResponse = await fetch(API_URL);
 		const booksData = await booksResponse.json();
 		const { docs } = booksData;
 
 		if (!docs.length) {
-			setBooks([]);
-			setResultsMsg('Aucun résultat ne correspond à votre recherche.');
-			setIsLoading(false);
-			return;
+			throw new Error('Aucun résultat correspondant à votre recherche.');
 		}
 
 		const books = booksFormatter(docs);
 
-		setBooks([...books]);
-		setIsLoading(false);
-		setResultsMsg('');
+		return books;
 	} catch (error) {
-		setIsLoading(false);
 		throw new Error(error.message);
 	}
 }

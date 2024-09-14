@@ -6,13 +6,10 @@
 
 	&__title {
 		font-size: $size-regular;
-		font-weight: $weight-regular;
+		font-weight: $weight-semibold;
 		color: $third-color;
 		padding: 2rem 0;
-		padding-left: 1.7rem;
-		@media (min-width: $desktop-breakpoint) {
-			padding-left: 0.8rem;
-		}
+		text-align: center;
 	}
 	&__grid {
 		display: grid;

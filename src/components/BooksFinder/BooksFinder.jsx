@@ -5,11 +5,24 @@ import './BooksFinder.scss';
 const BooksFinder = ({ setBooks, setResultsMsg, setIsLoading }) => {
 	const [inputValue, setInputValue] = useState('');
 	const inputReference = useRef();
+	const bookUrl = `https://openlibrary.org/search.json?q=${inputValue}&fields=key,cover_i,title,author_name&limit=30`;
 
 	useEffect(() => {
 		if (!inputValue.length || inputValue.trim() == '') return;
 
-		fetchBooks(inputValue, setIsLoading, setBooks, setResultsMsg);
+		setIsLoading(true);
+
+		fetchBooks(bookUrl)
+			.then((data) => {
+				setBooks([...data]);
+				setIsLoading(false);
+				setResultsMsg('');
+			})
+			.catch((error) => {
+				setIsLoading(false);
+				setBooks([]);
+				setResultsMsg(error.message);
+			});
 
 		return () => {
 			inputReference.current.value = '';
