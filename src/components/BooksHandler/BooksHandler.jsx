@@ -7,20 +7,20 @@ import Header from '../Header/Header';
 
 const BooksHandler = () => {
 	const [books, setBooks] = useState([]);
-	const [resultSectionTitle, setResultSectionTitle] = useState('');
+	const [resultsMsg, setResultsMsg] = useState('');
 	const [isLoading, setIsLoading] = useState(false);
+
 	return (
 		<div>
 			<Header />
 			<BooksFinder
 				setBooks={setBooks}
-				setResultSectionTitle={setResultSectionTitle}
+				setResultsMsg={setResultsMsg}
 				setIsLoading={setIsLoading}
 			/>
 			{isLoading && <Spinner />}
-			{books.length && (
-				<List books={books} resultSectionTitle={resultSectionTitle} />
-			)}
+			{resultsMsg && <p className="results">{resultsMsg}</p>}
+			{books.length && <List books={books} />}
 		</div>
 	);
 };

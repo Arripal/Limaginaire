@@ -9,7 +9,10 @@
 		font-weight: $weight-regular;
 		color: $third-color;
 		padding: 2rem 0;
-		padding-left: 0.7rem;
+		padding-left: 1.7rem;
+		@media (min-width: $desktop-breakpoint) {
+			padding-left: 0.8rem;
+		}
 	}
 	&__grid {
 		display: grid;

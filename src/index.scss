@@ -85,3 +85,11 @@ body {
 	@include flex;
 	align-items: center;
 }
+
+.results {
+	color: red;
+	font-weight: $weight-semibold;
+	font-size: $size-regular;
+	text-align: center;
+	margin-top: 2rem;
+}
